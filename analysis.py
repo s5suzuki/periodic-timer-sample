@@ -53,7 +53,7 @@ if __name__ == '__main__':
     markersize = [10, 9, 8, 7, 6, 5, 4]
 
     dirname = os.path.splitext(os.path.basename(path))[0]
-    os.makedirs(dirname)
+    os.makedirs(dirname, exist_ok=True)
     for intv in intervals:
         intv = int(intv)
         unit = 'ms' if intv >= 1000 * 1000 else 'us'
@@ -76,4 +76,4 @@ if __name__ == '__main__':
         ax.legend()
 
         plt.tight_layout()
-        plt.savefig(f'{dirname}/{intv/intv_div}{unit}.png')
+        plt.savefig(f'{dirname}/{intv/intv_div}{unit}.svg')
